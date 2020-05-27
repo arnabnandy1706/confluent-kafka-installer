@@ -1,0 +1,11 @@
+---
+# Installing Confluent-Kafka Platform and Confluent-Server Packages
+- name: Installing Confluent-Kafka Packages
+  yum:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - confluent-platform-2.12
+    - confluent-server
+
+
