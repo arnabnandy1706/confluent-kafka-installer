@@ -1,0 +1,31 @@
+---
+- name: Adding RPM Key
+  rpm_key:
+      key: https://packages.confluent.io/rpm/5.4/archive.key # required. Key that will be modified. Can be a url, a file, or a keyid if the key already exists in the database.
+      state: present # not required. choices: absent;present. If the key will be imported or removed from the rpm db.
+
+- name: Adding Confluent Dist Repo
+  yum_repository:
+    name: Confluent.dist
+    file: confluent
+    baseurl: https://packages.confluent.io/rpm/5.4/7
+    gpgkey: https://packages.confluent.io/rpm/5.4/archive.key
+    gpgcheck: 1
+    enabled: 1
+
+- name: Adding Confluent Yum Repo
+  yum_repository:
+    name: Confluent
+    file: confluent
+    baseurl: https://packages.confluent.io/rpm/5.4
+    gpgkey: https://packages.confluent.io/rpm/5.4/archive.key
+    gpgcheck: 1
+    enabled: 1
+
+- name: Installing Curl, Zip, Wget
+  yum:
+    name: {{ item }}
+    state: present
+  with_items: {{ common_packages }}
+
+- name: Installing Java
