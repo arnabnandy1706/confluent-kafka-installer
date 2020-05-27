@@ -29,3 +29,6 @@
   with_items: {{ common_packages }}
 
 - name: Installing Java
+  yum:
+    name: java
+    state: present
