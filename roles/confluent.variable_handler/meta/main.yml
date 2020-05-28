@@ -1,7 +1,7 @@
 galaxy_info:
-  author: Arnab Kumar Nandy
-  description: DevOps Consultant
-  company: Personal Inc.
+  author: your name
+  description: your role description
+  company: your company (optional)
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
@@ -47,8 +47,7 @@ galaxy_info:
     # NOTE: A tag is limited to a single word comprised of alphanumeric characters.
     #       Maximum 20 tags per role.
 
-dependencies:
-  - role: confluent.variable_handler
+dependencies: []
   # List your role dependencies here, one per line. Be sure to remove the '[]' above,
   # if you add dependencies to this list.
   

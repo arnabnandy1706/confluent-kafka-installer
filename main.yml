@@ -1,0 +1,12 @@
+---
+- name: Execuing Common Steps
+  hosts: zookeeper
+  tasks:
+  - import_role:
+      name: confluent.common # required. The name of the role to be executed.
+
+- name: Installing Zookeeper
+  hosts: zookeeper
+  tasks:
+  - import_role:
+      name: confluent.zookeeper

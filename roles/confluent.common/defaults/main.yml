@@ -5,3 +5,6 @@ common_packages:
   - wget
   - zip
   - unzip
+
+kafka_user: cp-kafka
+kafka_group: confluent
