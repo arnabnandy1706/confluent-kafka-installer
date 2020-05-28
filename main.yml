@@ -1,6 +1,6 @@
 ---
 - name: Execuing Common Steps
-  hosts: zookeeper
+  hosts: zookeeper:kafka_broker
   tasks:
   - import_role:
       name: confluent.common # required. The name of the role to be executed.
@@ -10,3 +10,9 @@
   tasks:
   - import_role:
       name: confluent.zookeeper
+
+- name: Installing Kafka Brokers
+  hosts: kafka_broker
+  tasks:
+  - import_role:
+      name: confluent.kafka_broker

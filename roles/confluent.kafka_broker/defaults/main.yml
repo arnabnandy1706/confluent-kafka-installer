@@ -1,5 +1,6 @@
 # defaults file for confluent.kafka_broker
-kafka:
+kafka_broker:
+  kafka_config_file: /etc/kafka/server.properties
   properties:
     # broker.id: 0
     num.network.threads: 3

@@ -20,3 +20,4 @@ zookeeper:
     autopurge.purgeInterval: 1
     dataDir: /var/lib/zookeeper
     admin.enableServer: "false"
+    clientPort: 2181
