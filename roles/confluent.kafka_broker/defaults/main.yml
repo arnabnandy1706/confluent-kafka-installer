@@ -1,18 +1,25 @@
 # defaults file for confluent.kafka_broker
-zookeeper_peer_port: 2888
-zookeeper_leader_port: 3888
-zookeeper_current_node_hostname: "{{ inventory_hostname }}"
-
-zookeeper:
-  log_path: /var/log/kafka/
-  log_name: zookeeper-server.log
-  max_log_files: 10
-  log_file_size: 100MB
+kafka:
   properties:
-    maxClientCnxns: 0
-    initLimit: 5
-    syncLimit: 2
-    autopurge.snapRetainCount: 10
-    autopurge.purgeInterval: 1
-    dataDir: /var/lib/zookeeper
-    admin.enableServer: "false"
+    # broker.id: 0
+    num.network.threads: 3
+    num.io.threads: 8
+    socket.send.buffer.bytes: 102400
+    socket.receive.buffer.bytes: 102400
+    socket.request.max.bytes: 104857600
+    log.dirs: /var/lib/kafka
+    num.partitions: 1
+    num.recovery.threads.per.data.dir: 1
+    offsets.topic.replication.factor: 1
+    transaction.state.log.replication.factor: 1
+    transaction.state.log.min.isr: 1
+    log.retention.hours: 168
+    log.segment.bytes: 1073741824
+    log.retention.check.interval.ms: 300000
+    # zookeeper.connect: localhost:2181
+    zookeeper.connection.timeout.ms: 18000
+    confluent.support.metrics.enable: true
+    confluent.support.customer.id: anonymous
+    group.initial.rebalance.delay.ms: 0
+    confluent.license.topic.replication.factor: 1
+    confluent.metadata.topic.replication.factor: 1
